@@ -1,7 +1,7 @@
 #@cantarellabots
 from pyrogram.enums import ParseMode
 from pyrogram import Client
-#@cantarellabots
+
 from pyrogram.types import InlineKeyboardMarkup, Message
 from cantarella.button import Button as InlineKeyboardButton
 from cantarella.core.anilist import TextEditor, CAPTION_FORMAT
@@ -9,7 +9,7 @@ from cantarella.core.utils import encode_data
 from config import MAIN_CHANNEL, BOT_TOKEN
 import re
 
-async def post_to_main_channel(client: Client, anime_url: str, uploaded_messages: list, quality_map: dict, batch_ep_range: str = None):
+async def post_to_main_channel(client: Client, anime_url: str, uploaded_messages: list, quality_map: dict, batch_ep_range: str = None, season_override: str = "1", ep_num_override: str = "1"):
     """
     Creates a post in the MAIN_CHANNEL with AniList metadata and quality buttons.
     uploaded_messages: list of Pyrogram Message objects that were uploaded to TARGET_CHAT_ID.
@@ -45,12 +45,14 @@ async def post_to_main_channel(client: Client, anime_url: str, uploaded_messages
     genres = ", ".join(data.get('genres', [])) or "Unknown"
 
     # Try to get season and ep_no from the first message
-    anime_season = "1"
-    ep_no = batch_ep_range if batch_ep_range else "1"
+    anime_season = season_override
+    ep_no = batch_ep_range if batch_ep_range else ep_num_override
 
     audio = "Dual Audio"
     if uploaded_messages:
-        m = re.search(r'\[S(\d+) - E(\d+)\]', uploaded_messages[0].caption or "")
+        m = re.search(r'\[S(\d+)-E(\d+)\]', uploaded_messages[0].caption or "")
+        if not m:
+            m = re.search(r'\[S(\d+) - E(\d+)\]', uploaded_messages[0].caption or "")
         if m:
             anime_season = m.group(1)
             if not batch_ep_range:
