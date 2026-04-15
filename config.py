@@ -6,7 +6,7 @@ load_dotenv()
 
 API_ID = int(os.environ.get("21920631", ))
 API_HASH = os.environ.get("6ecd5c412cf88aaaccf64dcb1e819cbc", "")
-BOT_TOKEN = os.environ.get("", "")
+BOT_TOKEN = os.environ.get("737474213:AAFuPHslXBZWF0SAXb-x8WUNY8l_5uY476c", "")
 
 SET_INTERVAL = int(os.environ.get("SET_INTERVAL", 60))  # in seconds, default 1 hour
 TARGET_CHAT_ID = os.environ.get("TARGET_CHAT_ID", "")
@@ -14,8 +14,8 @@ MAIN_CHANNEL = os.environ.get("MAIN_CHANNEL", "") # Change as needed
 LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "")
 MONGO_URL = os.environ.get("MONGO_URL", "")
 MONGO_NAME = os.environ.get("MONGO_NAME", "cantarellabots")
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
-ADMIN_URL = os.environ.get("ADMIN_URL", "@V_Sbotmaker")
+OWNER_ID = int(os.environ.get("6745282202", ""))
+ADMIN_URL = os.environ.get("@SKS_045", "@V_Sbotmaker")
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
 FSUB_PIC = os.environ.get("FSUB_PIC", "https://files.catbox.moe/bli70r.jpg")
 FSUB_LINK_EXPIRY = int(os.environ.get("FSUB_LINK_EXPIRY", 600))
