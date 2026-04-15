@@ -4,7 +4,7 @@ import subprocess
 
 # Your unique Telegram Bot Token
 API_TOKEN = '7737474213:AAFuPHslXBZWF0SAXb-x8WUNY8l_5uY476c'
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(7737474213:AAFuPHslXBZWF0SAXb-x8WUNY8l_5uY476c)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
